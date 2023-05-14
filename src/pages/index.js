@@ -1,3 +1,4 @@
+import MainPage from "../../components/Main/MainPage";
 
 
 
@@ -8,7 +9,7 @@ export default function Home() {
     <main
       className={`min-h-screen`}
     >
-      <h1 className="">Hello</h1>
+      <MainPage />
     </main>
   )
 }
