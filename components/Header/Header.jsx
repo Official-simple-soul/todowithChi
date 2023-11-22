@@ -1,15 +1,24 @@
-import Link from 'next/link';
-import React, { useState } from 'react';
+import Link from "next/link";
+import React, { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 
 const nav = [
-  { id: 1, title: 'Home', link: '/' },
-  { id: 2, title: 'Info', link: '/info' },
+  { id: 1, title: "Home", link: "/" },
+  { id: 2, title: "Info", link: "/info" },
 ];
 
 function Header() {
   const [active, setActive] = useState(1);
+  const router = useRouter();
+
+  useEffect(() => {
+    if (router.pathname === "/info/[id]") {
+      setActive(2);
+    }
+  }, [router.pathname]);
+
   return (
-    <div className="bg-[#F5F5F5] p-2 md:p-4 text-priBG flex justify-between items-center">
+    <div className="bg-priBG p-2 md:p-4 text-priText flex justify-between items-center shadow-md shadow-red-900">
       <div className="logo font-bold">ToDo</div>
       <nav>
         <ul className="flex space-x-6">
@@ -18,7 +27,8 @@ function Header() {
               key={navigation.id}
               onClick={() => setActive(navigation.id)}
               className={`${
-                navigation.id === active && 'bg-priBG text-white px-4 rounded-md'
+                navigation.id === active &&
+                "bg-yellow-600 text-black px-4 rounded-md"
               }`}
             >
               <Link href={`${navigation.link}`}>{navigation.title}</Link>

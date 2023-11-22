@@ -11,7 +11,7 @@ function Layout({children}) {
         <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
       </Head>
       <Header />
-      <main className="bg-priText text-white px-10 py-14">{children}</main>
+      <main className="bg-priText text-white px-10 py-14 min-h-screen">{children}</main>
     </>
   );
 }
