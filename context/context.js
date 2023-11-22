@@ -2,10 +2,11 @@ import React, { useContext, useState } from "react";
 
 const todoContext = React.createContext();
 
-const TodoProvider = ({children}) => {
+const TodoProvider = ({ children }) => {
   const [todoArr, setTodoArr] = useState([]);
   const [showModal, setShowModal] = useState(false);
-    const [moreID, setMoreID] = useState({});
+  const [showModals, openModal] = useState(false);
+  const [moreID, setMoreID] = useState({});
   return (
     <todoContext.Provider
       value={{
